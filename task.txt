@@ -1,0 +1,420 @@
+Last login: Sat Mar 19 14:18:00 on ttys000
+➜  ~ mkdir myapp
+➜  ~ cd myapp
+➜  myapp git init
+
+Initialized empty Git repository in /Users/orxanqasimov/myapp/.git/
+
+➜  myapp git:(master) git add
+Nothing specified, nothing added.
+
+➜  myapp git:(master) git add .
+
+➜  myapp git:(master) git log
+fatal: your current branch 'master' does not have any commits yet
+
+➜  ~ cd myapp
+
+➜  myapp git:(master) touch file.php
+
+➜  myapp git:(master) ✗ vim touch.php
+➜  myapp git:(master) ✗ ls
+file.php  touch.php
+➜  myapp git:(master) ✗ ls -a
+.         ..        .git      file.php
+
+➜  myapp git:(master) ✗ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	file.php
+
+nothing added to commit but untracked files present (use "git add" to track)
+➜  myapp git:(master) ✗ touch index.html
+➜  myapp git:(master) ✗ touch style.css
+➜  myapp git:(master) ✗ ls
+file.php   index.html style.css
+➜  myapp git:(master) ✗ touch readme.txt 
+➜  myapp git:(master) ✗ ls
+file.php   index.html readme.txt style.css
+➜  myapp git:(master) ✗ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	file.php
+	index.html
+	readme.txt
+	style.css
+
+nothing added to commit but untracked files present (use "git add" to track)
+➜  myapp git:(master) ✗ git add file.php
+➜  myapp git:(master) ✗ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+	new file:   file.php
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	index.html
+	readme.txt
+	style.css
+
+➜  myapp git:(master) ✗ git rm --cached file.php
+rm 'file.php'
+➜  myapp git:(master) ✗ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	file.php
+	index.html
+	readme.txt
+	style.css
+
+nothing added to commit but untracked files present (use "git add" to track)
+➜  myapp git:(master) ✗ git add .
+➜  myapp git:(master) ✗ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+	new file:   file.php
+	new file:   index.html
+	new file:   readme.txt
+	new file:   style.css
+
+
+The most similar command is
+	commit
+➜  myapp git:(master) ✗ git log
+fatal: your current branch 'master' does not have any commits yet
+➜  myapp git:(master) ✗ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+	new file:   file.php
+	new file:   index.html
+	new file:   readme.txt
+	new file:   style.css
+
+➜  myapp git:(master) ✗ vim index.html
+➜  myapp git:(master) ✗ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+	new file:   file.php
+	new file:   index.html
+	new file:   readme.txt
+	new file:   style.css
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   index.html
+
+➜  myapp git:(master) ✗ git add .
+
+➜  myapp git:(master) ✗ git commit -m "initial commit"
+[master (root-commit) b03ea2a] initial commit
+ 4 files changed, 2 insertions(+)
+ create mode 100644 file.php
+ create mode 100644 index.html
+ create mode 100644 readme.txt
+ create mode 100644 style.css
+➜  myapp git:(master) git status
+On branch master
+nothing to commit, working tree clean
+➜  myapp git:(master) git log
+➜  myapp git:(master) git log --oneline
+
+➜  myapp git:(master) vim index.html
+
+➜  myapp git:(master) ✗ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+➜  myapp git:(master) ✗ git add .
+➜  myapp git:(master) ✗ git commit -m "html modified"
+[master 5b5d87c] html modified
+ 1 file changed, 8 insertions(+), 2 deletions(-)
+➜  myapp git:(master) vim style.css
+
+➜  myapp git:(master) ✗ git add .
+➜  myapp git:(master) ✗ git commit -m "css modified"
+[master ae91a78] css modified
+ 1 file changed, 3 insertions(+)
+➜  myapp git:(master) git log --oneline
+➜  myapp git:(master) git log --oneline
+➜  myapp git:(master) git reset 5b5d87c --soft
+➜  myapp git:(master) ✗ git log --oneline
+➜  myapp git:(master) ✗ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   style.css
+
+➜  myapp git:(master) ✗ git commit -m "style.css modified"
+[master 0bca730] style.css modified
+ 1 file changed, 3 insertions(+)
+➜  myapp git:(master) ls      
+file.php   index.html readme.txt style.css
+➜  myapp git:(master) vim index.html
+➜  myapp git:(master) ✗ touch a.js
+➜  myapp git:(master) ✗ git add .
+➜  myapp git:(master) ✗ git commit --amend
+[master 1be9f8b] style.css modified and  a.js created
+ Date: Sat Mar 19 16:12:48 2022 +0400
+ 3 files changed, 4 insertions(+), 1 deletion(-)
+ create mode 100644 a.js
+➜  myapp git:(master) git log
+➜  myapp git:(master) git branch feature1 
+➜  myapp git:(master) git branch -a
+➜  myapp git:(master) git checkout feature1
+Switched to branch 'feature1'
+➜  myapp git:(feature1) touch feature1 b.js
+
+➜  myapp git:(feature1) ✗ git add .
+➜  myapp git:(feature1) ✗ git commit -m "feature1 mod"
+[feature1 c68ed93] feature1 mod
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 b.js
+ create mode 100644 feature1
+➜  myapp git:(feature1) git checkout master
+Switched to branch 'master'
+➜  myapp git:(master) git status
+On branch master
+nothing to commit, working tree clean
+➜  myapp git:(master) git checkout feature1
+Switched to branch 'feature1'
+➜  myapp git:(feature1) git status  
+On branch feature1
+nothing to commit, working tree clean
+➜  myapp git:(feature1) git checkout -b feature2
+Switched to a new branch 'feature2'
+➜  myapp git:(feature2) git branch -a
+
+➜  myapp git:(feature2) git checkout master
+Switched to branch 'master'
+➜  myapp git:(master) git branch -d feature1
+error: The branch 'feature1' is not fully merged.
+If you are sure you want to delete it, run 'git branch -D feature1'.
+
+➜  myapp git:(master) git branch -a
+➜  myapp git:(master) git merge feature1
+Updating 1be9f8b..c68ed93
+Fast-forward
+ b.js     | 0
+ feature1 | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 b.js
+ create mode 100644 feature1
+➜  myapp git:(master) git log
+
+➜  myapp git:(master) git checkout feature1
+Switched to branch 'feature1'
+➜  myapp git:(feature1) git checkout feature2
+Switched to branch 'feature2'
+➜  myapp git:(feature2) touch c.js
+➜  myapp git:(feature2) ✗ ls
+a.js       c.js       file.php   readme.txt
+b.js       feature1   index.html style.css
+➜  myapp git:(feature2) ✗ git checkout master
+Switched to branch 'master'
+➜  myapp git:(master) ✗ git merge feature2
+Already up to date.
+➜  myapp git:(master) ✗ git log
+➜  myapp git:(master) ✗ git log --oneline 
+➜  myapp git:(master) ✗ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	c.js
+
+nothing added to commit but untracked files present (use "git add" to track)
+➜  myapp git:(master) ✗ git add .
+➜  myapp git:(master) ✗ git commit -m "c.js merged from feature2"
+[master 56b6b8b] c.js merged from feature2
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 c.js
+➜  myapp git:(master) git log
+➜  myapp git:(master) 
+
+
+
+1-
+➜  myapp git:(master) ✗ git stash save "for test"
+➜  myapp git:(master) ✗ git stash list
+
+➜  myapp git:(master) git status
+On branch master
+nothing to commit, working tree clean
+
+➜  myapp git:(master) git stash pop
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   task.txt
+
+Dropped refs/stash@{0} (0406ba9ab98155ad2c59e610db64db00c8ad8176)
+
+➜  myapp git:(master) ✗ touch task1.txt
+➜  myapp git:(master) ✗ vim task1.txt
+➜  myapp git:(master) ✗ git stash save "asd"
+Saved working directory and index state On master: asd
+➜  myapp git:(master) ✗ git stash list
+➜  myapp git:(master) ✗ git stash drop
+Dropped refs/stash@{0} (be1415edf998488a5d7eb98809a770ee29f9e98e)
+
+➜  myapp git:(master) ✗ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	task.txt
+	task1.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+➜  myapp git:(master) ✗ rm task1.txt
+
+
+2-
+Fast Forward Merge:
+In this most commonly used merge strategy, history is just one straight line and that way master’s pointer is just moved straight forward and history is one straight line. - $ git rebase
+
+Recursive Merge:
+The merge commit continues to have two parents when there are some new original commits on the master. And git recurses over the branch and creates a new merge commit. - $ git merge--no-ff
+
+Ours Merge:
+Ignoring all changes from all other branches. It is meant to be used to supersede the old development history of side branches. - $ git merge -s ours
+
+Octopus Merge:
+Resolves cases with more than two heads but refuses to do a complex merge that needs manual resolution. It is primarily meant to be used for bundling topic branch heads together. This is the default merge strategy when pulling or merging more than one branch. - $ git merge -s octopus
+
+
+Resolve Merge:
+This strategy can only resolve two heads (i.e. the current branch and another branch you pulled from) using a 3-way merge algorithm. It tries to carefully detect criss-cross merge ambiguities and is considered generally safe and fast. - $ git merge -s resolve
+
+Subtree Merge:
+This is a modified recursive strategy. When merging trees A and B, if B corresponds to a subtree of A, B is first adjusted to match the tree structure of A, instead of reading the trees at the same level. This adjustment is also done to the common ancestor tree. - $ git merge -s subtree
+
+
+3 -
+➜  myapp git:(master) ✗ git config -- user.name "Orxan"
+➜  myapp git:(master) ✗ git config --global user.email "orkhannn7@gmail.com"
+
+➜  myapp git:(master) ✗ git config user.name
+Orxan
+➜  myapp git:(master) ✗ cd ..
+➜  ~ mkdir repos2
+➜  ~ cd repos2
+➜  repos2 git init
+Initialized empty Git repository in /Users/orxanqasimov/repos2/.git/
+
+➜  repos2 git:(master) touch text.txt
+➜  repos2 git:(master) ✗ git config --global user.name "Orxan Qasimov"
+
+➜  repos2 git:(master) ✗ git  config user.name
+Orxan Qasimov
+➜  repos2 git:(master) ✗ cd ..
+➜  ~ cd myapp
+➜  myapp git:(master) ✗ git config user.name
+Orxan
+➜  myapp git:(master) ✗ git config user.email
+orkhannn7@gmail.com
+
+
+4-
+➜  myapp git:(master) git push https://github.com/ogasimov7/Test.git master
+Enumerating objects: 15, done.
+Counting objects: 100% (15/15), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (12/12), done.
+Writing objects: 100% (15/15), 1.25 KiB | 160.00 KiB/s, done.
+Total 15 (delta 4), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (4/4), done.
+To https://github.com/ogasimov7/Test.git
+ * [new branch]      master -> master
+➜  myapp git:(master) git remote add orignhttps://github.com/ogasimov7/Test.git
+usage: git remote add [<options>] <name> <url>
+
+    -f, --fetch           fetch the remote branches
+    --tags                import all tags and associated objects when fetching
+                          or do not fetch any tag at all (--no-tags)
+    -t, --track <branch>  branch(es) to track
+    -m, --master <branch>
+                          master branch
+    --mirror[=(push|fetch)]
+                          set up remote as a mirror to push to or fetch from
+
+➜  myapp git:(master) git remote -v 
+➜  myapp git:(master) touch d.js
+➜  myapp git:(master) ✗ git add .
+➜  myapp git:(master) ✗ git commit -m "d.js created" 
+[master 9b70fda] d.js created
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 d.js
+
+➜  myapp git:(master) git remote add orign https://github.com/ogasimov7/Test.git
+➜  myapp git:(master) git push orign master
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 240 bytes | 240.00 KiB/s, done.
+Total 2 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/ogasimov7/Test.git
+   56b6b8b..9b70fda  master -> master
+➜  myapp git:(master) 
+
+➜  se2 git:(master) ✗ git add .
+➜  se2 git:(master) ✗ git commit -m "ssh"
+[master 4c831c7] ssh
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 style.css
+➜  se2 git:(master) git clone git@github.com:ogasimov7/se2.git
+Cloning into 'se2'...
+remote: Enumerating objects: 16, done.
+remote: Counting objects: 100% (16/16), done.
+remote: Compressing objects: 100% (8/8), done.
+remote: Total 16 (delta 1), reused 9 (delta 1), pack-reused 0
+Receiving objects: 100% (16/16), done.
+Resolving deltas: 100% (1/1), done.
+
+5-
+Trunk-based Development Workflow
+In the trunk-based development model, all developers work on a single branch with open access to it. Often it’s simply the master branch. They commit code to it and run it. It’s super simple.
+In some cases, they create short-lived feature branches. Once code on their branch compiles and passess all tests, they merge it straight to master. It ensures that development is truly continuous and prevents developers from creating merge conflicts that are difficult to resolve.
+
+In the Git flow development model
+you have one main development branch with strict access to it. It’s often called the develop branch.
+Developers create feature branches from this main branch and work on them. Once they are done, they create pull requests. In pull requests, other developers comment on changes and may have discussions, often quite lengthy ones.
+It takes some time to agree on a final version of changes. Once it’s agreed upon, the pull request is accepted and merged to the main branch. Once it’s decided that the main branch has reached enough maturity to be released, a separate branch is created to prepare the final version. The application from this branch is tested and bug fixes are applied up to the moment that it’s ready to be published to final users. Once that is done, we merge the final product to the master branch and tag it with the release version. In the meantime, new features can be developed on the develop branch.
+
+6-
+Git Merge - For developers using version control systems, merging is a prevalent method. Merging takes the contents of a source branch and combines them with a target branch, to be more precise. Only the target branch is updated in this process. The history of the source branch remains similar.
+
+Git Rebase - Another way to integrate modifications from one branch to another is by Rebase. Rebase compresses all the modifications into a single patch. The patch is then inserted into the target branch.
